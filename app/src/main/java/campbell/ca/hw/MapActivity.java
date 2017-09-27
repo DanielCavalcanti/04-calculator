@@ -30,24 +30,34 @@ public class MapActivity extends AppCompatActivity {
     }
     public void showMap(View v) {
         EditText country = (EditText) findViewById(R.id.locationMap);
-        Uri geoLocation = Uri.parse("geo:0,0?q=" + Uri.encode(country.getText().toString()));
-
-        Intent geoIntent = new Intent(Intent.ACTION_VIEW);
-        geoIntent.setData(geoLocation);
-        if (geoIntent.resolveActivity(getPackageManager()) != null) {
-            startActivity(geoIntent);
+        String input = country.getText().toString();
+        if (input == null || input.isEmpty()) {
+            country.setText(R.string.noData);
+            country.setTextColor(Color.MAGENTA);
         } else {
-            country.setText(R.string.error_no_geo);
-        }
+            Uri geoLocation = Uri.parse("geo:0,0?q=" + Uri.encode(country.getText().toString()));
 
+            Intent geoIntent = new Intent(Intent.ACTION_VIEW);
+            geoIntent.setData(geoLocation);
+            if (geoIntent.resolveActivity(getPackageManager()) != null) {
+                startActivity(geoIntent);
+            } else {
+                country.setText(R.string.error_no_geo);
+            }
+        }
     }
     public void searchWeb(View v) {
         EditText country = (EditText) findViewById(R.id.locationMap);
-        Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
-        intent.putExtra(SearchManager.QUERY, country.getText().toString());
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
+        String input = country.getText().toString();
+        if (input == null || input.isEmpty()) {
+            country.setText(R.string.noData);
+            country.setTextColor(Color.MAGENTA);
+        }else{
+            Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+            intent.putExtra(SearchManager.QUERY, country.getText().toString());
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            }
         }
     }
-
 }

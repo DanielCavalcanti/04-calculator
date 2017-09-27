@@ -135,26 +135,20 @@ public class MainActivity extends AppCompatActivity {
 
         String country = getResources().getString(R.string.country);
         Uri  geoLocation = Uri.parse("geo:0,0?q=" + Uri.encode(country));
-
         Intent geoIntent = new Intent(Intent.ACTION_VIEW);
-
         geoIntent.setData(geoLocation);
         if (geoIntent.resolveActivity(getPackageManager()) != null) {
             startActivity(geoIntent);
         } else {
             result.setText(R.string.error_no_geo);
         }
-
     }
 
     public void launchActivity2(View view) {
         Intent i = new Intent(this, MapActivity.class);
-
         String country = getResources().getString(R.string.country);
         i.putExtra("country", country);
-
         startActivity(i);
-
     }
 
     public static void logIt(String msg){
