@@ -2,8 +2,12 @@
 <resources>
     <string name="app_name">Calculatrice Simple</string>
     <string name="add">Ajouter</string>
+    <string name="search">Recherche Google</string>
+    <string name="noData">Aucune information fournie</string>
     <string name="div">Diviser</string>
     <string name="enter_hint">Entrez un numéro</string>
+    <string name="location_hint">Entrez un lieu</string>
+    <string name="Location_Button">Google Map</string>
     <string name="mult">Multiplier</string>
     <string name="subtr">Soustraire</string>
     <string name="country">France</string>

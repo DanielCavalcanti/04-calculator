@@ -2,8 +2,8 @@ package campbell.ca.hw;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -146,4 +146,20 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    public void launchActivity2(View view) {
+        Intent i = new Intent(this, MapActivity.class);
+
+        String country = getResources().getString(R.string.country);
+        i.putExtra("country", country);
+
+        startActivity(i);
+
+    }
+
+    public static void logIt(String msg){
+        final String TAG = "INTDATA1";
+        Log.d(TAG, msg);
+    }
+
 }
